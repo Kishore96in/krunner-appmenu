@@ -7,4 +7,4 @@ KDE Store page: https://store.kde.org/p/1487409/
 
 To configure a key binding (e.g. Alt) to open KRunner with only this plugin, do
 
-    kwriteconfig5 --file kwinrc --group ModifierOnlyShortcuts --key Alt org.kde.krunner,/App,,displaySingleRunner,krunner_appmenu
+    kwriteconfig6 --file kwinrc --group ModifierOnlyShortcuts --key Alt org.kde.krunner,/App,,displaySingleRunner,krunner_appmenu
