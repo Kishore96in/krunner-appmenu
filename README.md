@@ -1,5 +1,6 @@
 # krunner-appmenu
 A KRunner plugin that shows the menu of the current application.
+This requires an existing global menu applet (so that the application menus are actually exported).
 
 Requires Python 3.4, dbus-python and python-xlib.
 
