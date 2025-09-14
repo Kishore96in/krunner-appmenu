@@ -93,6 +93,10 @@ class AppmenuXWindowInfo(object):
                 logger.debug("active window is krunner, ignoring")
                 return
             
+            """
+            Some applications, particularly GTK, can be slow to publish their D-Bus menu in KDE,
+            so we try to fetch the appmenu properties for up to 0.5 seconds before giving up
+            """
             appmenu = (None, None)
             for _ in range(5):
                 appmenu = self._get_appmenu_names(window)
