@@ -12,4 +12,4 @@ chmod +x ./krunner_appmenu.py
 
 nohup ./krunner_appmenu.py >/dev/null 2>&1 &
 
-kquitapp5 krunner
+kquitapp6 krunner

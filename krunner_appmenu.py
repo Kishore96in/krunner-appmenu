@@ -3,6 +3,7 @@
 import logging
 import re
 import threading
+import time
 import unicodedata
 from enum import Enum
 from itertools import filterfalse
@@ -91,7 +92,18 @@ class AppmenuXWindowInfo(object):
             if window.get_wm_class() == ('krunner', 'krunner'):
                 logger.debug("active window is krunner, ignoring")
                 return
-            appmenu = self._get_appmenu_names(window)
+            
+            """
+            Some applications, particularly GTK, can be slow to publish their D-Bus menu in KDE,
+            so we try to fetch the appmenu properties for up to 0.5 seconds before giving up
+            """
+            appmenu = (None, None)
+            for _ in range(5):
+                appmenu = self._get_appmenu_names(window)
+                if all(appmenu):
+                    break
+                time.sleep(0.1)
+            
             logger.debug("active window has appmenu %r", appmenu)
 
         self._active_window_id = winid
