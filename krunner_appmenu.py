@@ -92,7 +92,8 @@ class AppmenuXWindowInfo(object):
             if window.get_wm_class() == ('krunner', 'krunner'):
                 logger.debug("active window is krunner, ignoring")
                 return
-            
+
+            #TODO: move this waiting logic into a separate method?
             """
             Some applications, particularly GTK, can be slow to publish their D-Bus menu in KDE,
             so we try to fetch the appmenu properties for up to 0.5 seconds before giving up
